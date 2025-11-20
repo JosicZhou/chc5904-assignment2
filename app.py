@@ -43,20 +43,8 @@ st.divider()
 # -----------------------------------------------------------------------------
 st.header("Interactive Frequency Map")
 
-# Define the path to your qgis2web index.html file.
-# This path is relative to where you run the 'streamlit run' command.
-map_path = os.path.join('qgis2web', 'index.html')
-
-# Check if the map file exists before trying to open it.
-if os.path.exists(map_path):
-    with open(map_path, 'r', encoding='utf-8') as f:
-        html_map = f.read()
-    
-    # Embed the HTML map in the Streamlit app.
-    # The height can be adjusted as needed.
-    components.html(html_map, height=650, scrolling=True)
-else:
-    st.error(f"Error: Map file not found at '{map_path}'. Please ensure the 'qgis2web' folder is in the same directory as this script.")
+map_url = "https://josiczhou.github.io/chc5904-assignment2/qgis2web/"
+st.components.v1.iframe(map_url, height=650, scrolling=True)
 
 st.divider()
 
